@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --rice-50: #fbf7f0;
+  --rice-100: #f4eadb;
+  --rice-200: #e8d7be;
+  --rice-300: #d8bf9b;
+  --sesame-400: #c88b4a;
+  --sesame-500: #a86830;
+  --sesame-700: #6f3f1b;
+  --chili-500: #d85d3b;
+  --ink-900: #2b1b10;
+  --ink-700: #4a2f1b;
+  --paper: #fff8ee;
+  --paper-strong: #f3e7d6;
+  --font-display: "Fraunces", "Iowan Old Style", "Garamond", serif;
+  --font-sans: "Plus Jakarta Sans", "Avenir Next", "Trebuchet MS", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--ink-900);
+  background: radial-gradient(circle at top left, #fff6e8 0%, #f7ead7 35%, #f0dbc1 65%, #e9c8a7 100%);
+  min-height: 100vh;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(120deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0)),
+    radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.45), transparent 45%),
+    radial-gradient(circle at 90% 10%, rgba(255, 255, 255, 0.35), transparent 55%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+::selection {
+  background: rgba(216, 93, 59, 0.3);
+}
+
+.print-only {
+  display: none;
+}
+
+@media print {
+  body {
+    background: white;
+  }
+
+  body::before {
+    display: none;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-only {
+    display: block;
+  }
+}
